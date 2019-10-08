@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    container_name: docker-ingredient
+    restart: always
+    build: .
+    ports:
+      - '90:4000'
+    links:
+      - mongo
+  mongo:
+    container_name: mongo-ingredient
+    image: mongo
+    ports:
+      - '27018:27018'
